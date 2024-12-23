@@ -199,10 +199,11 @@ else:
     search_name = st.text_input("Enter Name to Search Patient History")
 
     if search_name:
-        history = fetch_patient_data(search_name)
-        if history:
-            st.write("Patient History:")
-            for record in history:
-                st.write(record)
+        patient_history = fetch_patient_data(name)
+
+        # Display Patient History in Table
+        if patient_history:
+            df = pd.DataFrame(patient_history, columns=["ID", "Name", "Age", "Gender", "Contact Info", "Symptoms", "Predicted Disease", "Visit Date"])
+            st.table(df)
         else:
             st.warning(f"No records found for {search_name}")
