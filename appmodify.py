@@ -194,6 +194,7 @@ else:
             }
             pdf_file = create_pdf(patient_data, disease_info)
             st.download_button("Download PDF", data=open(pdf_file, "rb"), file_name="patient_report.pdf", mime="application/pdf")
+            
     st.sidebar.subheader("Patient History")
     search_name = st.text_input("Enter Name to Search Patient History")
 
